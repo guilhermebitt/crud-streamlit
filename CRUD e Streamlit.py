@@ -6,6 +6,10 @@
 
 import requests
 import streamlit as st
+# STREAMLIT GUI
+st.title('Trabalho Avaliativo 05')
+st.markdown('Feito no Senac')
+st.markdown('Tutor: Antônio')
 
 def verifyName(name):
     error = False
@@ -79,8 +83,4 @@ test.append(verifyEmail(email))
 test.append(verifyCpf(cpf))
 test.append(lookCep(cep))
 
-# STREAMLIT GUI
-st.title('Trabalho Avaliativo 05')
-st.markdown('Feito no Senac')
-st.markdown('Tutor: Antônio')
 st.write(test)
