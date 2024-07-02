@@ -29,6 +29,7 @@ def verifyPhone(telephone):
     if telephone.isnumeric() == False:
         error = True
         text_error = 'O telefone deve conter números.'
+        return error, text_error
     if len(telephone) != 10 and len(telephone) != 11:
         error = True
         text_error = 'O telefone deve conter dez digitos.'
@@ -52,12 +53,13 @@ def verifyEmail(email):
 def verifyCpf(cpf):
     error = False
     text_error = ''
-    if len(cpf) != 11:
-        error = True
-        text_error = 'O CPF deve conter apenas onze digitos.'
     if cpf.isnumeric() == False:
         error = True
         text_error = 'O CPF deve conter apenas números.'
+        return error, text_error
+    if len(cpf) != 11:
+        error = True
+        text_error = 'O CPF deve conter apenas onze digitos.'
     return error, text_error
 
 
