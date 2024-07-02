@@ -79,13 +79,13 @@ def lookCep(cep):
         return error, dados # logradouro -> rua / localidade -> cidade
 
 
-name = str(st.text_input(label='Nome')).strip()
+name = str(st.text_input(label='Nome', )).strip()
 error_name = verifyName(name)
 if name and error_name[0] == True:
     st.error(error_name[1])
     error = True
 
-telephone = str(st.text_input(label='Telefone')).replace(' ', '')
+telephone = str(st.text_input(label='Telefone', placeholder='Apenas números')).replace(' ', '')
 error_tel = verifyPhone(telephone)
 if telephone and error_tel[0] == True:
     st.error(error_tel[1])
@@ -97,13 +97,13 @@ if email and error_email[0] == True:
     st.error(error_email[1])
     error = True
 
-cpf = str(st.text_input(label='CPF')).strip()
+cpf = str(st.text_input(label='CPF', placeholder='Apenas números')).strip()
 error_cpf = verifyCpf(cpf)
 if cpf and error_cpf[0] == True:
     st.error(error_cpf[1])
     error = True
 
-cep = str(st.text_input(label='CEP')).strip()
+cep = str(st.text_input(label='CEP', placeholder='Apenas números')).strip()
 error_cep = lookCep(cep)
 if cep and error_cep[0] == True:
     st.error(error_cep[1])
@@ -120,3 +120,4 @@ Endereço: Cidade: {address['localidade']} | Bairro {address['bairro']} | Rua: {
 '''
 
     st.download_button('Exportar Informações', str(dados), 'user-info.txt')
+
