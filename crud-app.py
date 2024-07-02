@@ -41,9 +41,10 @@ def verifyEmail(email):
     text_error = ''
     res = 'incorrect'
     if '@' in email:
-        pos_at = email.find('@')
-        if '.' in email[pos_at+2:] and email[-1] != '.':
-            res = 'correct'
+        if email.find('@') - 1 != -1:
+            pos_at = email.find('@')
+            if '.' in email[pos_at+2:] and email[-1] != '.':
+                res = 'correct'
     if res != 'correct':
         error = True
         text_error = 'E-mail inválido.'
@@ -122,4 +123,3 @@ Endereço: Cidade: {address['localidade']} | Bairro {address['bairro']} | Rua: {
 '''
 
     st.download_button('Exportar Informações', str(dados), 'user-info.txt')
-
